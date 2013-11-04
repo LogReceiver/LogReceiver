@@ -127,8 +127,7 @@
                                 Margin="5"
                                 FontSize="9"
                                 Foreground="RoyalBlue"
-                                Text="Upcomming features"
-                                ToolTip="Open browser to upcomming features page"
+                                Text="Suggest new a feature or report a bug"
                                 TextDecorations="Underline"
                                 />
                         </ControlTemplate>

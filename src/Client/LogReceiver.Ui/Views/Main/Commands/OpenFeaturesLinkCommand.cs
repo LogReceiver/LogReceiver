@@ -29,13 +29,13 @@ namespace LogReceiver.Ui.Views.Main.Commands
 {
     public class OpenFeaturesLinkCommand : ViewModelCommandBase<IMainViewModel>, IOpenFeaturesLinkCommand
     {
-        private const string TrelloLink = "https://trello.com/board/logreceiver/50c6eed71a9624e3690160cd";
-        private readonly IDialogService _dialogService;
+        private const string TrelloLink = "https://github.com/LogReceiver/LogReceiver/issues";
+        private readonly IDialogService dialogService;
 
         public OpenFeaturesLinkCommand(
             IDialogService dialogService)
         {
-            _dialogService = dialogService;
+            this.dialogService = dialogService;
         }
 
         public override void Execute(object parameter)
@@ -46,7 +46,7 @@ namespace LogReceiver.Ui.Views.Main.Commands
             }
             catch (Exception exception)
             {
-                _dialogService.ShowErrorFormat(
+                dialogService.ShowErrorFormat(
                     ResidingWindowViewViewModel,
                     "Could not open link",
                     "Could not open link '{0}' to upcomming features,\ndue to: {0}",
