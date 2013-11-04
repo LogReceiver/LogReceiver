@@ -4,3 +4,6 @@
 [submodule "modules/Lawnch"]
 	path = modules/Lawnch
 	url = https://github.com/rasmus/Lawnch.git
+[submodule "modules/CiPsLib"]
+	path = modules/CiPsLib
+	url = https://github.com/rasmus/CiPsLib.git
