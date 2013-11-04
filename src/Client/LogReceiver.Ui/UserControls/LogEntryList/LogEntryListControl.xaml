@@ -331,8 +331,12 @@
                 <DataGridTemplateColumn Header="Time" Width="95" IsReadOnly="True" SortMemberPath="Time" CanUserSort="True" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=Time, StringFormat={}{0:HH\:mm\:ss\.fff}}" FontFamily="Courier New" ToolTip="{Binding Path=Time, StringFormat={}{0:yyyy\-MM\-dd HH\:mm\:ss\.fff}}" />
-                        </DataTemplate>
+                            <TextBlock Text="{Binding Path=Time, StringFormat={}{0:HH\:mm\:ss\.fff}}" FontFamily="Courier New">
+                                <TextBlock.ToolTip>
+                                    <ToolTip Content="{Binding Path=Time}" ContentStringFormat="{}{0:yyyy\-MM\-dd HH\:mm\:ss\.fff}" />
+                                </TextBlock.ToolTip>
+                            </TextBlock>
+                    </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="20" IsReadOnly="True" CanUserResize="False">
@@ -345,7 +349,11 @@
                 <DataGridTemplateColumn Header="Logger" Width="150" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=LoggerTextShort}" FontFamily="Courier New" />
+                            <TextBlock Text="{Binding Path=LoggerTextShort}" FontFamily="Courier New">
+                                <TextBlock.ToolTip>
+                                    <ToolTip Content="{Binding Path=LoggerText}" />
+                                </TextBlock.ToolTip>
+                            </TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
