@@ -1,0 +1,382 @@
+﻿<userControls:OnservableUserControlBase
+    x:Class="LogReceiver.Ui.UserControls.LogEntryList.LogEntryListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="clr-namespace:LogReceiver.Ui.Core"
+    xmlns:utilities="clr-namespace:Blocks.Mvvm.Utilities;assembly=Blocks.Mvvm"
+    xmlns:userControls="clr-namespace:Blocks.Mvvm.UserControls;assembly=Blocks.Mvvm"
+    xmlns:converters="clr-namespace:Blocks.Mvvm.Converters;assembly=Blocks.Mvvm"
+    xmlns:filterSelection="clr-namespace:LogReceiver.Ui.UserControls.LogEntryList.UserControls.FilterSelection"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="800"
+    >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Blocks.Mvvm;component/Styles/FancyDataGrid.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <utilities:ElementSpy x:Key="LogEntryListControl" />
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:BoolToVisibilityConverter x:Key="InvertedBoolToVisibilityConverter" IsInverted="True" />
+            <converters:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=ClearLogEntriesCommand}" Modifiers="Control" Key="X" />
+        <KeyBinding Command="{Binding Path=DeselectLogEntryCommand}" Key="Escape" />
+    </UserControl.InputBindings>
+
+    <Grid
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Popup
+            Width="600"
+            Height="300"
+            Placement="Bottom"
+            PlacementTarget="{Binding ElementName=IsFilterPopupOpenButton}"
+            IsOpen="{Binding Path=IsFilterPopupOpen}"
+            StaysOpen="False"
+            >
+            <Border
+                BorderBrush="DimGray"
+                Background="LightGray"
+                Padding="5"
+                BorderThickness="1"
+                >
+                <filterSelection:FilterSelectionControl
+                    DataContext="{Binding Path=FilterSelectionControlModel}"
+                    />
+            </Border>
+        </Popup>
+
+        <!-- =============================================== -->
+        <Border
+            Grid.Row="0"
+            BorderThickness="1"
+            BorderBrush="DarkGray"
+            Background="LightGray"
+            >
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton
+                    Margin="5"
+                    Grid.Column="0"
+                    IsChecked="{Binding Path=IsFilterPopupOpen}"
+                    Name="IsFilterPopupOpenButton"
+                    >
+                    <Image Source="/LogReceiver.Ui;component/Resources/Icons/zoom.png" />
+                </ToggleButton>
+
+                <Button
+                    Margin="5"
+                    Grid.Column="2"
+                    Command="{Binding Path=ExportLogEntriesCommand}"
+                    >
+                    <userControls:AutoGreyableImage Source="/LogReceiver.Ui;component/Resources/Icons/disk.png" />
+                </Button>
+                
+                <Button
+                    Grid.Column="3"
+                    Margin="5"
+                    Content="Clear"
+                    Width="100"
+                    Command="{Binding Path=ClearLogEntriesCommand}"
+                    />
+
+                <TextBox
+                    Grid.Column="4"
+                    Width="200"
+                    Margin="5"
+                    Text="{Binding Path=RegexExpression, UpdateSourceTrigger=PropertyChanged}"
+                    Background="{Binding Path=RegexExpressionBackground}"
+                    />
+
+                <!-- DEBUG -->
+                <Grid
+                    Margin="5,0,15,0"
+                    Grid.Column="5"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox
+                        Grid.Column="0"
+                        IsChecked="{Binding Path=IsDebugEnabled}"
+                        Content="DEBUG"
+                        Foreground="#255D22"
+                        FontWeight="DemiBold"
+                        VerticalAlignment="Center"
+                        />
+                    <Image
+                        Grid.Column="1"
+                        Height="16"
+                        Width="16"
+                        Source="/LogReceiver.Ui;component/Resources/Icons/bug.png"
+                        />
+                </Grid>
+
+                <!-- INFO -->
+                <Grid
+                    Margin="5,0,15,0"
+                    Grid.Column="6"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox
+                        Grid.Column="0"
+                        IsChecked="{Binding Path=IsInformationEnabled}"
+                        Content="INFO"
+                        Foreground="#31347C"
+                        FontWeight="DemiBold"
+                        VerticalAlignment="Center"
+                        />
+                    <Image
+                        Grid.Column="1"
+                        Height="16"
+                        Width="16"
+                        Source="/LogReceiver.Ui;component/Resources/Icons/information.png"
+                        />
+                </Grid>
+
+                <!-- WARN -->
+                <Grid
+                    Margin="5,0,15,0"
+                    Grid.Column="7"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox
+                        Grid.Column="0"
+                        IsChecked="{Binding Path=IsWarningEnabled}"
+                        Content="WARN"
+                        Foreground="#8E4C05"
+                        FontWeight="DemiBold"
+                        VerticalAlignment="Center"
+                        />
+                    <Image
+                        Grid.Column="1"
+                        Height="16"
+                        Width="16"
+                        Source="/LogReceiver.Ui;component/Resources/Icons/error.png"
+                        />
+                </Grid>
+
+                <!-- ERROR -->
+                <Grid
+                    Margin="5,0,15,0"
+                    Grid.Column="8"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox
+                        Grid.Column="0"
+                        IsChecked="{Binding Path=IsErrorEnabled}"
+                        Content="ERROR"
+                        Foreground="#914034"
+                        FontWeight="DemiBold"
+                        VerticalAlignment="Center"
+                        />
+                    <Image
+                        Grid.Column="1"
+                        Height="16"
+                        Width="16"
+                        Source="/LogReceiver.Ui;component/Resources/Icons/exclamation.png"
+                        />
+                </Grid>
+
+                <!-- FATAL -->
+                <Grid
+                    Margin="5,0,15,0"
+                    Grid.Column="9"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox
+                        Grid.Column="0"
+                        IsChecked="{Binding Path=IsFatalEnabled}"
+                        Content="FATAL"
+                        FontWeight="DemiBold"
+                        VerticalAlignment="Center"
+                        />
+                    <Image
+                        Grid.Column="1"
+                        Height="16"
+                        Width="16"
+                        Source="/LogReceiver.Ui;component/Resources/Icons/skull.png"
+                        />
+                </Grid>
+                
+                
+                <StackPanel
+                    Grid.Column="11"
+                    Margin="5,0,5,0"
+                    VerticalAlignment="Center"
+                    >
+                    <Image
+                        Source="/LogReceiver.Ui;component/Resources/Icons/lightbulb_off.png"
+                        Height="16"
+                        Width="16"
+                        VerticalAlignment="Center"
+                        Visibility="{Binding Path=IsActive, Converter={StaticResource InvertedBoolToVisibilityConverter}}"
+                        />
+                    <Image
+                        Source="/LogReceiver.Ui;component/Resources/Icons/lightbulb.png"
+                        Height="16"
+                        Width="16"
+                        VerticalAlignment="Center"
+                        Visibility="{Binding Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}}"
+                        />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- =============================================== -->
+        <DataGrid
+            Grid.Row="1"
+            Grid.Column="0"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserResizeColumns="True"
+            CanUserReorderColumns="False"
+            AutoGenerateColumns="False"
+            SelectionUnit="FullRow"
+            SelectionMode="Single"
+            SelectedItem="{Binding Path=Element.DataContext.SelectedLogEntry, Mode=TwoWay, Source={StaticResource LogEntryListControl}}"
+            DataContext="{Binding Path=LogEntriesViewSource}"
+            ItemsSource="{Binding}"
+            >
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <cmd:EventToCommand Command="{Binding Path=Element.DataContext.ShowLogEntryDetailsCommand, Mode=OneWay, Source={StaticResource LogEntryListControl}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        FontWeight="Bold"
+                        Header="Show log entry"
+                        Command="{Binding Path=Element.DataContext.ShowLogEntryDetailsCommand, Mode=OneWay, Source={StaticResource LogEntryListControl}}"
+                        >
+                        <MenuItem.Icon>
+                            <Image Height="16" Width="16" Source="/LogReceiver.Ui;component/Resources/Icons/magnifier.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem
+                        Header="Mute logger"
+                        CommandParameter="{Binding Path=Element.DataContext.SelectedLogEntry, Source={StaticResource LogEntryListControl}}"
+                        Command="{Binding Path=Element.DataContext.DeselectFilterCommand, Mode=OneWay, Source={StaticResource LogEntryListControl}}"
+                        >
+                        <MenuItem.Icon>
+                            <Image Height="16" Width="16" Source="/LogReceiver.Ui;component/Resources/Icons/zoom_out.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Id" Width="50" IsReadOnly="True" SortMemberPath="Id" CanUserSort="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Id}" FontFamily="Courier New" TextAlignment="Right" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Time" Width="95" IsReadOnly="True" SortMemberPath="Time" CanUserSort="True" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Time, StringFormat={}{0:HH\:mm\:ss\.fff}}" FontFamily="Courier New" ToolTip="{Binding Path=Time, StringFormat={}{0:yyyy\-MM\-dd HH\:mm\:ss\.fff}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="20" IsReadOnly="True" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="16" Width="16" Source="{Binding Path=ImageSource}" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Logger" Width="150" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=LoggerTextShort}" FontFamily="Courier New" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Message" Width="*" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=MessageHeaderText}" FontFamily="Courier New" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GridSplitter
+            Grid.Row="2"
+            Height="5"
+            HorizontalAlignment="Stretch"
+            ResizeDirection="Rows"
+            />
+        
+        <TextBox
+            Grid.Row="3"
+            IsReadOnly="True"
+            Text="{Binding Path=SelectedLogEntry.MessageText}"
+            HorizontalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Visible"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            FontFamily="Courier New"
+            Visibility="{Binding Path=SelectedLogEntry, Converter={StaticResource ObjectToVisibilityConverter}}"
+            />
+    </Grid>
+</userControls:OnservableUserControlBase>

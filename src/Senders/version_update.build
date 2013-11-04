@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="LogReceiver" default="update_version_number" basedir=".">
+	<!-- ================================================================================ -->
+	<target name="init">
+		<echo message="Version is ${build.version}" />
+	
+		<property name="dir.current" value="${path::get-full-path(path::combine(directory::get-current-directory(), '.'))}" />
+		<echo message="Current directory is '${dir.current}'"/>
+	</target>
+	
+	<!-- ================================================================================ -->
+	
+	<target name="update_version_number" depends="init">
+		<foreach item="File" in="${dir.current}" property="tmp.filename">
+			<if test="${string::ends-with(tmp.filename,'nuspec')}">
+				<echo message="Poking file ${tmp.filename}" />
+				<foreach item="String" in="LogReceiver.Api" delim="," property="tmp.packageId">
+					<xmlpoke
+						file="${tmp.filename}"
+						xpath="/nu:package/nu:metadata/nu:dependencies/nu:dependency[@id='${tmp.packageId}']/@version"
+						value="${build.version}"
+						verbose="true"
+						>
+						 <namespaces>
+							<namespace prefix="nu" uri="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd" />
+						</namespaces>
+					</xmlpoke>
+					<echo message="------------------------------------------------------" />
+					<echo message="" />
+				</foreach>
+			</if>
+		</foreach>
+	</target>
+</project>

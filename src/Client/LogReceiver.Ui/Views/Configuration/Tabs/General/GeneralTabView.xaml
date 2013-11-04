@@ -1,0 +1,133 @@
+﻿<UserControl
+    x:Class="LogReceiver.Ui.Views.Configuration.Tabs.General.GeneralTabView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    d:DesignHeight="271" d:DesignWidth="430"
+    >
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Control" x:Key="styleControlBase">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource styleControlBase}">
+            </Style>
+            <Style TargetType="CheckBox" BasedOn="{StaticResource styleControlBase}">
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource styleControlBase}">
+            </Style>
+            <Style TargetType="ComboBox" BasedOn="{StaticResource styleControlBase}">
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource styleControlBase}">
+                <Setter Property="Width" Value="100" />
+                <Setter Property="Margin" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid
+        Margin="5"
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid
+            Grid.Row="0" Grid.Column="0"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <GroupBox
+                Grid.Row="0"
+                Header="Settings"
+                >
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Word wrap -->
+                    <Label
+                        Grid.Row="0" Grid.Column="0"
+                        Content="Word wrap"
+                        />
+                    <CheckBox
+                        Grid.Row="0" Grid.Column="1"
+                        IsChecked="{Binding Path=WordWrap}"
+                        />
+
+                    <Label
+                        Grid.Row="1" Grid.Column="0"
+                        Content="Parse C# stack traces"
+                        />
+                    <CheckBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsChecked="{Binding Path=ParseCSharpStackTrace}"
+                        />
+
+                    <Label
+                        Grid.Row="4" Grid.Column="0"
+                        Content="Max number of log entries"
+                        />
+                    <ComboBox
+                        Grid.Row="4" Grid.Column="1"
+                        ItemsSource="{Binding Path=AllMaxNumberOfLogEntries}"
+                        SelectedItem="{Binding Path=MaxNumberOfLogEntries}"
+                        />
+
+                    <Label
+                        Grid.Row="5" Grid.Column="0"
+                        Content="LogReceiver.Net: log fetch time span"
+                        />
+                    <ComboBox
+                        Grid.Row="5" Grid.Column="1"
+                        ItemsSource="{Binding Path=AllLogFetchTimeSpans}"
+                        SelectedItem="{Binding Path=SelectedLogFetchTimeSpan}"
+                        />
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Column="1"
+                Content="Save"
+                Command="{Binding Path=SaveSettingsCommand}"
+                />
+            <Button
+                Grid.Column="2"
+                Content="Reset"
+                Command="{Binding Path=ResetSettingsCommand}"
+                />
+        </Grid>
+    </Grid>
+</UserControl>

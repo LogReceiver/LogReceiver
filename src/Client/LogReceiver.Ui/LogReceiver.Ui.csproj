@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C864AEC2-7871-4807-97DD-34E51B0893B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogReceiver.Ui</RootNamespace>
+    <AssemblyName>LogReceiver.Ui</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\LogReceiver.Ui.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\LogReceiver.Ui.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\Configuration\LogReceiver.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\Solutions\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packagesBlend.Interctivity.WPF.v4.0.1.0.3\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\Solutions\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Reactive.Core, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solutions\packages\Rx-Core.2.1.30214.0\lib\Net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solutions\packages\Rx-Interfaces.2.1.30214.0\lib\Net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solutions\packages\Rx-Linq.2.1.30214.0\lib\Net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solutions\packages\Rx-PlatformServices.2.1.30214.0\lib\Net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solutions\packages\Rx-XAML.2.1.30214.0\lib\Net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packagesBlend.Interctivity.WPF.v4.0.1.0.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\EventToCommand.cs" />
+    <Compile Include="ILogReceiverUiBlock.cs" />
+    <Compile Include="Models\Export\ELogEntryCollection.cs" />
+    <Compile Include="Models\Export\ELogEntry.cs" />
+    <Compile Include="Models\Mapping\UiMapper.cs" />
+    <Compile Include="Models\Mapping\IUiMapper.cs" />
+    <Compile Include="Models\PLogEntry.cs" />
+    <Compile Include="Models\PMethodCall.cs" />
+    <Compile Include="Models\PReceiver.cs" />
+    <Compile Include="Models\PReceiverInitializer.cs" />
+    <Compile Include="Models\PStackTrace.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Setup\LogReceiverUiBlock.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\DeselectFilterCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\DeselectLogEntryCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\ExportLogEntriesCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\IDeselectFilterCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\IDeselectLogEntryCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\IExportLogEntriesCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\CreateFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\DeleteFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\EditFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\ICreateFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\IDeleteFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\IEditFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\ILoadFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\ISaveFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\ISelectAllFiltersCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\LoadFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\PFilterProfile.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\SaveFilterProfileCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\Commands\SelectAllFiltersCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\Export\ExFilter.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\Export\ExFilterProfile.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\Mapping\FilterConfigurationMapper.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\Mapping\IFilterConfigurationMapper.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\DOM\PFilter.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\FilterSelectionControl.xaml.cs">
+      <DependentUpon>FilterSelectionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\FilterSelectionControlModel.cs" />
+    <Compile Include="UserControls\LogEntryList\UserControls\FilterSelection\IFilterSelectionControlModel.cs" />
+    <Compile Include="UserControls\LogEntryList\ILogEntryListViewModel.cs" />
+    <Compile Include="UserControls\LogEntryList\LogEntryListControl.xaml.cs">
+      <DependentUpon>LogEntryListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LogEntryList\LogEntryListViewModel.cs" />
+    <Compile Include="Views\About\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About\AboutViewModel.cs" />
+    <Compile Include="Views\About\IAboutView.cs" />
+    <Compile Include="Views\About\IAboutViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\DOM\PLogFetchTimeSpanType.cs" />
+    <Compile Include="Views\LogEntryDetails\Commands\CopyFilePathCommand.cs" />
+    <Compile Include="Views\LogEntryDetails\Commands\ICopyFilePathCommand.cs" />
+    <Compile Include="Views\LogEntryDetails\ILogEntryDetailsView.cs" />
+    <Compile Include="Views\LogEntryDetails\ILogEntryDetailsViewModel.cs" />
+    <Compile Include="Views\LogEntryDetails\LogEntryDetailsView.xaml.cs">
+      <DependentUpon>LogEntryDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogEntryDetails\LogEntryDetailsViewModel.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\ClearLogEntriesCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\IClearLogEntriesCommand.cs" />
+    <Compile Include="Views\Main\Commands\CloseReceiverTabCommand.cs" />
+    <Compile Include="Views\Main\Commands\ICloseReceiverTabCommand.cs" />
+    <Compile Include="Views\Main\Commands\IOpenFeaturesLinkCommand.cs" />
+    <Compile Include="Views\Main\Commands\IShowAboutCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\IShowLogEntryDetailsCommand.cs" />
+    <Compile Include="Views\Main\Commands\IShowSettingsCommand.cs" />
+    <Compile Include="Views\Main\Commands\ITestSendLogEventCommand.cs" />
+    <Compile Include="Views\Main\Commands\OpenFeaturesLinkCommand.cs" />
+    <Compile Include="Views\Main\Commands\ShowAboutCommand.cs" />
+    <Compile Include="UserControls\LogEntryList\Commands\ShowLogEntryDetailsCommand.cs" />
+    <Compile Include="Views\Main\Commands\ShowSettingsCommand.cs" />
+    <Compile Include="Views\Main\Commands\TestSendLogEventCommand.cs" />
+    <Compile Include="Views\Main\IMainView.cs" />
+    <Compile Include="Views\Main\IMainViewModel.cs" />
+    <Compile Include="Views\Main\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\MainViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\Commands\ResetSettingsCommand.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\Commands\IResetSettingsCommand.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\Commands\ISaveSettingsCommand.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\Commands\SaveSettingsCommand.cs" />
+    <Compile Include="Views\Configuration\IConfigurationView.cs" />
+    <Compile Include="Views\Configuration\IConfigurationViewModel.cs" />
+    <Compile Include="Views\Configuration\ConfigurationView.xaml.cs">
+      <DependentUpon>ConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\ConfigurationViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\GeneralTabView.xaml.cs">
+      <DependentUpon>GeneralTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\Tabs\General\GeneralTabViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\General\IGeneralTabViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\Receivers\Commands\ISpawnReceiverCommand.cs" />
+    <Compile Include="Views\Configuration\Tabs\Receivers\Commands\SpawnReceiverCommand.cs" />
+    <Compile Include="Views\Configuration\Tabs\Receivers\IReceiversTabViewModel.cs" />
+    <Compile Include="Views\Configuration\Tabs\Receivers\ReceiversTabView.xaml.cs">
+      <DependentUpon>ReceiversTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\Tabs\Receivers\ReceiversTabViewModel.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="..\..\..\Configuration\LogReceiver.snk">
+      <Link>LogReceiver.snk</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\Blocks\src\Blocks.Core\Blocks.Core.csproj">
+      <Project>{2821349E-6F6F-4C57-A9D1-E5B96C418C76}</Project>
+      <Name>Blocks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\modules\Blocks\src\Blocks.Mvvm\Blocks.Mvvm.csproj">
+      <Project>{e1e6550c-8124-44c4-866e-16b853b65d2a}</Project>
+      <Name>Blocks.Mvvm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogReceiver.Core\LogReceiver.Core.csproj">
+      <Project>{cde4c4aa-7b5e-4558-98ac-e338c7abc51e}</Project>
+      <Name>LogReceiver.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UserControls\LogEntryList\UserControls\FilterSelection\FilterSelectionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LogEntryList\LogEntryListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\About\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogEntryDetails\LogEntryDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\ConfigurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\Tabs\General\GeneralTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\Tabs\Receivers\ReceiversTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\application_icon.ico" />
+    <Resource Include="Resources\application_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bug.png" />
+    <Resource Include="Resources\Icons\delete.png" />
+    <Resource Include="Resources\Icons\door_open.png" />
+    <Resource Include="Resources\Icons\error.png" />
+    <Resource Include="Resources\Icons\exclamation.png" />
+    <Resource Include="Resources\Icons\help.png" />
+    <Resource Include="Resources\Icons\information.png" />
+    <Resource Include="Resources\Icons\stop.png" />
+    <Resource Include="Resources\Icons\none.png" />
+    <Resource Include="Resources\Icons\skull.png" />
+    <Resource Include="Resources\Icons\disk.png" />
+    <Resource Include="Resources\Icons\page.png" />
+    <Resource Include="Resources\Icons\page_edit.png" />
+    <Resource Include="Resources\Icons\lightbulb.png" />
+    <Resource Include="Resources\Icons\lightbulb_off.png" />
+    <Resource Include="Resources\Icons\application_go.png" />
+    <Resource Include="Resources\Icons\world_go.png" />
+    <Resource Include="Resources\Icons\cog.png" />
+    <Resource Include="Resources\Icons\user_gray.png" />
+    <Resource Include="Resources\Icons\application_lightning.png" />
+    <Resource Include="Resources\Icons\folder_page_white.png" />
+    <Resource Include="Resources\Icons\magnifier.png" />
+    <Resource Include="Resources\Icons\cross.png" />
+    <Resource Include="Resources\Icons\zoom.png" />
+    <Resource Include="Resources\Icons\user_add.png" />
+    <Resource Include="Resources\Icons\lock_open.png" />
+    <Resource Include="Resources\Icons\lock.png" />
+    <Resource Include="Resources\Icons\server_edit.png" />
+    <Resource Include="Resources\Icons\application.png" />
+    <Resource Include="Resources\Icons\server.png" />
+    <Resource Include="Resources\Icons\application_add.png" />
+    <Resource Include="Resources\Icons\page_copy.png" />
+    <Resource Include="Resources\Icons\server_add.png" />
+    <Resource Include="Resources\Icons\key.png" />
+    <Resource Include="Resources\Icons\key_add.png" />
+    <Resource Include="Resources\Icons\key_delete.png" />
+    <Resource Include="Resources\Icons\key_go.png" />
+    <Resource Include="Resources\Icons\printer.png" />
+    <Resource Include="Resources\Icons\printer_add.png" />
+    <Resource Include="Resources\Icons\printer_delete.png" />
+    <Resource Include="Resources\Icons\printer_empty.png" />
+    <Resource Include="Resources\Icons\printer_error.png" />
+    <Resource Include="Resources\Icons\connect.png" />
+    <Resource Include="Resources\Icons\disconnect.png" />
+    <Resource Include="Resources\Icons\note.png" />
+    <Resource Include="Resources\Icons\note_add.png" />
+    <Resource Include="Resources\Icons\note_delete.png" />
+    <Resource Include="Resources\Icons\note_edit.png" />
+    <Resource Include="Resources\Icons\note_error.png" />
+    <Resource Include="Resources\Icons\note_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\logreceiver_changelog.txt">
+      <Link>Resources\logreceiver_changelog.txt</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Icons\user_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\user_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\accept.png" />
+    <Resource Include="Resources\Icons\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\server_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\server_chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bullet_green.png" />
+    <Resource Include="Resources\Icons\bullet_red.png" />
+    <Resource Include="Resources\Icons\package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bullet_black.png" />
+    <Resource Include="Resources\Icons\zoom_out.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

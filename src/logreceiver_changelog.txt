@@ -1,0 +1,33 @@
+ABOUT
+=====
+	Contributions:
+		* Development
+		  Rasmus Mikkelsen (http://smus.nu/)
+
+	Third party libraries used in release:
+		* Silk icons
+		  http://www.famfamfam.com/lab/icons/silk/
+		* Common Service Locator
+		  http://commonservicelocator.codeplex.com/
+		* AutoMapper
+		  http://automapper.codeplex.com/
+		* Reactive Extensions
+		  http://msdn.microsoft.com/en-us/data/gg577609.aspx
+		* StructureMap
+		  http://docs.structuremap.net/
+		* log4net
+		  http://logging.apache.org/log4net/
+
+	Third party libraries used only on http://logreceiver.net/:
+		* jQuery
+		  http://jquery.com/
+		* Entity Framework
+		  http://msdn.microsoft.com/en-us/data/ef.aspx
+
+	Third party libraries used during development:
+		* NUnit
+		  http://www.nunit.org/
+		* NSubstitute
+		  http://nsubstitute.github.com/
+		* FluentAssertions
+		  http://fluentassertions.codeplex.com/

@@ -1,0 +1,14 @@
+*.suo
+_ReSharper*
+*.user
+obj
+bin
+*.vs10x
+*.stackdump
+*.dotCover
+*.disco
+*.svcinfo
+*.xsd
+*.wsdl
+*~
+tmp

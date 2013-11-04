@@ -1,0 +1,106 @@
+﻿<UserControl
+    x:Class="LogReceiver.Ui.Views.Configuration.Tabs.Receivers.ReceiversTabView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:LoadingSpinners="clr-namespace:Blocks.Mvvm.UserControls.LoadingSpinners;assembly=Blocks.Mvvm"
+    mc:Ignorable="d" d:DesignWidth="800"
+    >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="100" />
+                <Setter Property="Margin" Value="8" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontWeight" Value="DemiBold" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="descriptionText">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Foreground" Value="Gray" />
+            </Style>
+            
+            <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label
+            Grid.Row="0" Grid.Column="0"
+            Content="Receivers"
+            />
+        <ListView
+            Grid.Row="1" Grid.Column="0"
+            ItemsSource="{Binding Path=ReceiverInitializers}"
+            SelectedItem="{Binding Path=SelectedReceiverInitializer}"
+            HorizontalContentAlignment="Stretch"
+            MinHeight="100"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Path=Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            Grid.Row="2" Grid.Column="0"
+            Content="Spawn receiver"
+            HorizontalAlignment="Right"
+            Command="{Binding Path=SpawnReceiverCommand}"
+            />
+
+        <Label
+            Grid.Row="0" Grid.Column="2"
+            Content="Active receivers"
+            />
+        <ListView
+            Grid.Row="1" Grid.Column="2"
+            ItemsSource="{Binding Path=Receivers}"
+            SelectedItem="{Binding Path=SelectedReceiver}"
+            HorizontalContentAlignment="Stretch"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="24" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Row="0" Grid.Column="0"
+                            Text="{Binding Path=Name}" />
+                        <LoadingSpinners:SpinnerSwirlControl
+                            Grid.Row="0" Grid.Column="1"
+                            Width="16" Height="16"
+                            Visibility="{Binding Path=IsLoading, Converter={StaticResource booleanToVisibilityConverter}}"
+                            />
+                        <TextBlock
+                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            Style="{StaticResource descriptionText}"
+                            Text="{Binding Path=Description}"
+                            />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

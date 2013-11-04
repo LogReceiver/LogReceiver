@@ -1,0 +1,29 @@
+﻿<Views:WindowViewBase
+    x:Class="LogReceiver.Ui.Views.Configuration.ConfigurationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Views="clr-namespace:Blocks.Mvvm.Views;assembly=Blocks.Mvvm"
+    Title="Settings" Height="361" Width="549"
+    WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:General="clr-namespace:LogReceiver.Ui.Views.Configuration.Tabs.General"
+    xmlns:Receivers="clr-namespace:LogReceiver.Ui.Views.Configuration.Tabs.Receivers"
+    mc:Ignorable="d"
+   >
+
+   <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TabControl>
+            <TabItem Header="General">
+                <General:GeneralTabView DataContext="{Binding Path=GeneralTabViewModel}" />
+            </TabItem>
+            <TabItem Header="Log receivers">
+                <Receivers:ReceiversTabView DataContext="{Binding Path=ReceiversTabViewModel}" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Views:WindowViewBase>

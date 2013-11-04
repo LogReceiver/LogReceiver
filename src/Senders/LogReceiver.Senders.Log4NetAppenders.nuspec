@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>LogReceiver.Senders.Log4NetAppenders</id>
+        <version>0.0.1</version>
+        <title>LogReceiver - Senders - Log4NetAppenders</title>
+        <authors>rasmus</authors>
+        <owners>rasmus</owners>
+        <projectUrl>http://logreceiver.net/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<licenseUrl>http://logreceiver.net/logreceiver.senders.log4netappenders.license.txt</licenseUrl>
+        <description><![CDATA[ALPHA version!
+
+This package contains Log4Net appenders for LogReceiver, which is still in its VERY early phase of development.
+
+Contains the following appenders:
+ - LogReceiver.Senders.Log4NetAppenders.LogReceiverDotNetAppender
+ - LogReceiver.Senders.Log4NetAppenders.LegacyTcpAppender
+ 
+ See http://logreceivecr.net/Documentation/Log4Net for documentation.
+ ]]></description>
+        <dependencies>
+            <dependency id="log4net" version="1.2.11" />
+            <dependency id="LogReceiver.Api" version="0.0.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Senders\LogReceiver.Senders.Log4NetAppenders\bin\Release\LogReceiver.Senders.Log4NetAppenders.dll" target="lib\net45\LogReceiver.Senders.Log4NetAppenders.dll" />
+    </files>
+</package>

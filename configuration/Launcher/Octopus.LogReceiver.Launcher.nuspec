@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Octopus.LogReceiver.Launcher</id>
+        <version>0.0.1</version>
+        <title>Octopus LogReceiver Lawnch publisher for Octopus</title>
+        <authors>rasmus</authors>
+        <owners />
+        <licenseUrl>http://smus.nu</licenseUrl>
+        <projectUrl>http://smus.nu</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Octopus package to deploy LogReceiver Lawnch application.</description>
+    </metadata>
+    <files>
+        <file src="Octopus.LogReceiver.Launcher\**\*.*" target="" />
+    </files>
+</package>
