@@ -23,7 +23,6 @@
 using System.Collections.Generic;
 using Blocks.Mvvm.ViewModels;
 using LogReceiver.Ui.Views.Configuration.Tabs.General.Commands;
-using LogReceiver.Ui.Views.Configuration.Tabs.General.DOM;
 
 namespace LogReceiver.Ui.Views.Configuration.Tabs.General
 {
@@ -33,10 +32,6 @@ namespace LogReceiver.Ui.Views.Configuration.Tabs.General
         IResetSettingsCommand ResetSettingsCommand { get; }
 
         IEnumerable<int> AllMaxNumberOfLogEntries { get; }
-        IReadOnlyCollection<PLogFetchTimeSpanType> AllLogFetchTimeSpans { get; }
-
-        PLogFetchTimeSpanType SelectedLogFetchTimeSpan { get; set; }
-
         bool IsDirty { get; set; }
 
         bool WordWrap { get; set; }

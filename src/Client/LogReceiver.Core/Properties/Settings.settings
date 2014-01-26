@@ -11,8 +11,5 @@
     <Setting Name="ILogReceiverUserSettings_MaxNumberOfLogEntries" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ILogReceiverUserSettings_LogFetchTimeSpan" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
   </Settings>
 </SettingsFile>

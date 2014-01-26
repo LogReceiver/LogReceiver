@@ -20,24 +20,11 @@
  * -----------------------------------------------------------------------------
  */
 
-using System;
 using Blocks.Core.Configuration;
 using Blocks.Core.Utilities;
 
 namespace LogReceiver.Core
 {
-    [Serializable]
-    public enum LogFetchTimeSpanType
-    {
-        Unknown,
-        Everything,
-        OneMonth,
-        OneWeek,
-        FourDays,
-        TwoDays,
-        OneDay,
-    }
-
     public interface ILogReceiverUserSettings : IUserConfigurationKeys
     {
         [DefaultConfiguration(true)]
@@ -57,8 +44,5 @@ namespace LogReceiver.Core
 
         [DefaultConfiguration(5000)]
         int MaxNumberOfLogEntries { get; set; }
-
-        [DefaultConfiguration(LogFetchTimeSpanType.OneWeek)]
-        LogFetchTimeSpanType LogFetchTimeSpan { get; set; }
     }
 }

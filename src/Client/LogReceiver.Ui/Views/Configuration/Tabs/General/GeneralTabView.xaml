@@ -95,17 +95,6 @@
                         ItemsSource="{Binding Path=AllMaxNumberOfLogEntries}"
                         SelectedItem="{Binding Path=MaxNumberOfLogEntries}"
                         />
-
-                    <Label
-                        Grid.Row="5" Grid.Column="0"
-                        Content="LogReceiver.Net: log fetch time span"
-                        />
-                    <ComboBox
-                        Grid.Row="5" Grid.Column="1"
-                        ItemsSource="{Binding Path=AllLogFetchTimeSpans}"
-                        SelectedItem="{Binding Path=SelectedLogFetchTimeSpan}"
-                        />
-
                 </Grid>
             </GroupBox>
         </Grid>

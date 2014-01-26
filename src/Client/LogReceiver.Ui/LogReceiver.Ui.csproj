@@ -196,7 +196,6 @@
     <Compile Include="Views\About\AboutViewModel.cs" />
     <Compile Include="Views\About\IAboutView.cs" />
     <Compile Include="Views\About\IAboutViewModel.cs" />
-    <Compile Include="Views\Configuration\Tabs\General\DOM\PLogFetchTimeSpanType.cs" />
     <Compile Include="Views\LogEntryDetails\Commands\CopyFilePathCommand.cs" />
     <Compile Include="Views\LogEntryDetails\Commands\ICopyFilePathCommand.cs" />
     <Compile Include="Views\LogEntryDetails\ILogEntryDetailsView.cs" />

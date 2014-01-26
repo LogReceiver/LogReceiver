@@ -48,7 +48,6 @@ namespace LogReceiver.Ui.Views.Configuration.Tabs.General.Commands
             _configuration.Set(c => c.WordWrap, ParentViewModel.WordWrap);
             _configuration.Set(c => c.ParseCSharpStackTrace, ParentViewModel.ParseCSharpStackTrace);
             _configuration.Set(c => c.MaxNumberOfLogEntries, ParentViewModel.MaxNumberOfLogEntries);
-            _configuration.Set(c => c.LogFetchTimeSpan, ParentViewModel.SelectedLogFetchTimeSpan.Value);
 
             ParentViewModel.IsDirty = false;
         }

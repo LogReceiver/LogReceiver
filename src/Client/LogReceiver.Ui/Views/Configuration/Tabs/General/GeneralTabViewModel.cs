@@ -22,13 +22,11 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using Blocks.Core.Configuration;
 using Blocks.Mvvm.ViewModels;
 using LogReceiver.Core;
 using LogReceiver.Ui.Views.Configuration.Tabs.General.Commands;
 using Blocks.Core.Extensions;
-using LogReceiver.Ui.Views.Configuration.Tabs.General.DOM;
 
 namespace LogReceiver.Ui.Views.Configuration.Tabs.General
 {
@@ -40,25 +38,6 @@ namespace LogReceiver.Ui.Views.Configuration.Tabs.General
         public IResetSettingsCommand ResetSettingsCommand { get; private set; }
 
         public IEnumerable<int> AllMaxNumberOfLogEntries { get; private set; }
-
-        public IReadOnlyCollection<PLogFetchTimeSpanType> AllLogFetchTimeSpans { get; private set; }
-
-        #region Property - SelectedLogFetchTimeSpan
-        private PLogFetchTimeSpanType _internalSelectedLogFetchTimeSpan;
-        public PLogFetchTimeSpanType SelectedLogFetchTimeSpan
-        {
-            get { return _internalSelectedLogFetchTimeSpan; }
-            set
-            {
-                if (_internalSelectedLogFetchTimeSpan == value)
-                {
-                    return;
-                }
-                _internalSelectedLogFetchTimeSpan = value;
-                RaisePropertyChanged(() => SelectedLogFetchTimeSpan);
-            }
-        }
-        #endregion
 
         #region Property - WordWrap
         private bool _wordWrap;
@@ -137,7 +116,6 @@ namespace LogReceiver.Ui.Views.Configuration.Tabs.General
             ResetSettingsCommand = CreateAndBindChild<IResetSettingsCommand, IGeneralTabViewModel>();
 
             AllMaxNumberOfLogEntries = new List<int>{ 5, 100, 500, 1000, 5000, 10000 };
-            AllLogFetchTimeSpans = PLogFetchTimeSpanType.GetAll();
 
             PropertyChanged += OnPropertyChanged;
 
@@ -149,8 +127,6 @@ namespace LogReceiver.Ui.Views.Configuration.Tabs.General
             WordWrap = _configuration.Get(c => c.WordWrap);
             ParseCSharpStackTrace = _configuration.Get(c => c.ParseCSharpStackTrace);
             MaxNumberOfLogEntries = _configuration.Get(c => c.MaxNumberOfLogEntries);
-
-            SelectedLogFetchTimeSpan = AllLogFetchTimeSpans.Single(ts => ts.Value == _configuration.Get(c => c.LogFetchTimeSpan));
 
             IsDirty = false;
         }
