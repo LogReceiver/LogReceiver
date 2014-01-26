@@ -85,7 +85,7 @@ namespace LogReceiver.Core.Receiving
             }
 
             Receivers.Add(receiver);
-            _messenger.Send(new ReceiverSpawnedMessage(receiver));
+            _messenger.Send<ReceiverSpawnedMessage>(m => m.Receiver = receiver);
 
             _threadHelper.QueueUserWorkItem(() =>
                 {
@@ -102,7 +102,12 @@ namespace LogReceiver.Core.Receiving
                     {
                         Receivers.Remove(receiver);
                         _logger.ErrorFormat(exception, "Could not start receiver '{0}'", receiver.GetType());
-                        _messenger.Send(new ReceiverDiedMessage(receiver, exception));
+                        _messenger.Send<ReceiverDiedMessage>(m =>
+                            {
+                                m.Exception = exception;
+                                m.Reason = ReceiverDiedMessage.ReasonType.Exception;
+                                m.Receiver = receiver;
+                            });
                     }
                 });
         }
@@ -140,7 +145,11 @@ namespace LogReceiver.Core.Receiving
             if (e.PropertyName == receiver.GetPropertyName(r => r.State) &&
                 receiver.State != ReceiverStateType.Running)
             {
-                _messenger.Send(new ReceiverDiedMessage(receiver, ReceiverDiedMessage.ReasonType.Stopped));
+                _messenger.Send<ReceiverDiedMessage>(m =>
+                    {
+                        m.Reason = ReceiverDiedMessage.ReasonType.Stopped;
+                        m.Receiver = receiver;
+                    });
                 Receivers.Remove(receiver);
             }
         }

@@ -33,24 +33,8 @@ namespace LogReceiver.Core.Messages
             Stopped,
         }
 
-        public IReceiver Receiver { get; private set; }
-        public ReasonType Reason { get; private set; }
-        public Exception Exception { get; private set; }
-
-        public ReceiverDiedMessage(
-            IReceiver receiver,
-            ReasonType reason)
-        {
-            Receiver = receiver;
-            Reason = reason;
-        }
-
-        public ReceiverDiedMessage(
-            IReceiver receiver,
-            Exception exception)
-            : this(receiver, ReasonType.Exception)
-        {
-            Exception = exception;
-        }
+        public IReceiver Receiver { get; set; }
+        public ReasonType Reason { get; set; }
+        public Exception Exception { get; set; }
     }
 }

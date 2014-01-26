@@ -26,11 +26,6 @@ namespace LogReceiver.Core.Messages
 {
     public class ReceiverSpawnedMessage
     {
-        public IReceiver Receiver { get; private set; }
-
-        public ReceiverSpawnedMessage(IReceiver receiver)
-        {
-            Receiver = receiver;
-        }
+        public IReceiver Receiver { get; set; }
     }
 }
