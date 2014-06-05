@@ -13,6 +13,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Solutions\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,16 +69,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\modules\Blocks\src\Blocks.Core\Blocks.Core.csproj">
-      <Project>{2821349E-6F6F-4C57-A9D1-E5B96C418C76}</Project>
+    <ProjectReference Include="..\..\..\modules\Blocks\Source\Blocks.Core\Blocks.Core.csproj">
+      <Project>{2821349e-6f6f-4c57-a9d1-e5b96c418c76}</Project>
       <Name>Blocks.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\modules\Blocks\src\Blocks.Mvvm\Blocks.Mvvm.csproj">
-      <Project>{e1e6550c-8124-44c4-866e-16b853b65d2a}</Project>
-      <Name>Blocks.Mvvm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\modules\Blocks\src\Blocks.TestHelpers\Blocks.TestHelpers.csproj">
-      <Project>{D922C83F-E5DC-46E6-B33F-F9AF5FD542BF}</Project>
+    <ProjectReference Include="..\..\..\modules\Blocks\Source\Blocks.TestHelpers\Blocks.TestHelpers.csproj">
+      <Project>{d922c83f-e5dc-46e6-b33f-f9af5fd542bf}</Project>
       <Name>Blocks.TestHelpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\LogReceiver.Ui\LogReceiver.Ui.csproj">
@@ -86,6 +84,13 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

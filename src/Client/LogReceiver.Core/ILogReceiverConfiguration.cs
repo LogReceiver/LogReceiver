@@ -21,13 +21,12 @@
  */
 
 using Blocks.Core.Configuration;
-using Blocks.Core.Utilities;
 
 namespace LogReceiver.Core
 {
     public interface ILogReceiverConfiguration : IApplicationConfigurationKeys
     {
-        [DefaultConfiguration("http://localhost:1499")]
-        string LogReceiverUrl { get; set; }
+        string LogLevel { get; set; }
+        string EnvironmentName { get; set; }
     }
 }

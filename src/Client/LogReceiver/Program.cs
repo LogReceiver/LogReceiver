@@ -21,7 +21,16 @@
  */
 
 using System;
+using System.Configuration;
+using Blocks.Core.LogEngines.SeriLog;
+using Blocks.Core.LogEngines.SeriLog.Enrichers;
 using Blocks.Core.Services;
+using Blocks.Core.Setup;
+using Blocks.Mvvm.Setup;
+using LogReceiver.Core.Setup;
+using LogReceiver.Ui.Setup;
+using Serilog;
+using Serilog.Events;
 
 namespace LogReceiver
 {
@@ -30,7 +39,26 @@ namespace LogReceiver
         [STAThread]
         static void Main(string[] args)
         {
-            Boot.Start();
+            var logEventLevel = SeriLogEngine.ParseLogEventLevel(ConfigurationManager.AppSettings["ILogReceiverConfiguration_LogLevel"]);
+            var seriLogEngine = new SeriLogEngine(
+                Environment.UserInteractive,
+                logEventLevel,
+                ApplicationInformation.Create(
+                    ConfigurationManager.AppSettings["ILogReceiverConfiguration_EnvironmentName"],
+                    typeof(Program).Assembly.GetName().Version),
+                    Configure);
+
+            Boot.Start(BlocksOptions.Create(
+                    () => seriLogEngine,
+                    new CoreBlock(),
+                    new MvvmBlock(),
+                    new LogReceiverCoreBlock(),
+                    new LogReceiverUiBlock()));
+        }
+
+        private static LoggerConfiguration Configure(LoggerConfiguration loggerConfiguration, LogEventLevel logEventLevel)
+        {
+            return loggerConfiguration;
         }
     }
 }
