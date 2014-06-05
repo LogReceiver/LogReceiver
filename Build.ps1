@@ -10,12 +10,13 @@ $NuGetExe = 'src\Solutions\.nuget\NuGet.exe'
 
 if ((Test-Path $NuGetExe) -eq $false) {(New-Object System.Net.WebClient).DownloadFile('http://nuget.org/nuget.exe', $NuGetExe)}
 
+& $NuGetExe install psake -OutputDirectory src\Solutions\packages -Version 4.2.0.1
+& $NuGetExe install ILRepack -OutputDirectory src\Solutions\packages -Version 1.22.2
+
 if((Get-Module psake) -eq $null)
 { 
     Import-Module $MyDir\src\Solutions\packages\psake.4.2.0.1\tools\psake.psm1
 }
-
-& $NuGetExe install ILRepack -OutputDirectory src\Solutions\packages -Version 1.22.2
 
 $TmpPath = $MyDir+'\tmp'
 [IO.Directory]::CreateDirectory($TmpPath)
