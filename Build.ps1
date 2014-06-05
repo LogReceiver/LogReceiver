@@ -12,6 +12,8 @@ if ((Test-Path $NuGetExe) -eq $false) {(New-Object System.Net.WebClient).Downloa
 
 & $NuGetExe install psake -OutputDirectory src\Solutions\packages -Version 4.2.0.1
 & $NuGetExe install ILRepack -OutputDirectory src\Solutions\packages -Version 1.22.2
+& $NuGetExe install CommonServiceLocator -OutputDirectory src\Solutions\packages -Version 1.3
+& $NuGetExe install structuremap -OutputDirectory src\Solutions\packages -Version 3.0.3.116
 & $NuGetExe restore src\Solutions\LogReceiver.sln
 
 if((Get-Module psake) -eq $null)
