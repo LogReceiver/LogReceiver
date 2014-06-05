@@ -21,12 +21,6 @@ $LauncherFilePath = "$MyDir\Launcher\LogReceiver.Launcher.exe"
 
 ###############################################################################
 
-# Updating .config file
-XmlPoke $ConfigFilePath "/configuration/log4net/root/level/@value" $LogLevel -Verbose
-#XmlPoke $ConfigFilePath "/configuration/log4net/root/appender-ref/@ref" "LogReceiverDotNetAppender" -Verbose
-
-###############################################################################
-
 Write-Host "Creating $DeploymentDir"
 [IO.Directory]::CreateDirectory($DeploymentDir)
 
